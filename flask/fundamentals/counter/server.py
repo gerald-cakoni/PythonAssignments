@@ -6,7 +6,7 @@ app.secret_key = 'keep it secret, keep it safe'
 def index():
     if 'count' not in session:
         session['count']=0
-    session['count']+=1
+    session['count']+=1 
     if 'countall' not in session:
         session['countall']=0
     session['countall']+=1

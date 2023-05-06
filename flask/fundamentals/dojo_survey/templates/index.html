@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dojo Survey</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+
+<body class="body">
+
+    <div class="box">
+        <h1>Dojo Survey</h1>
+        <div>
+            <form class="form-group" action="/process", method="post">
+            <div class="d-inline">
+                <label for="name">Name: </label>
+                <input type="text" name="name" class="form-control">
+            </div>
+            <div>
+                <label for="location">Dojo Location: </label><br>
+                <input type="radio" name="location" value="Tirane">
+                <label for="location">Tirane</label><br>
+                <input type="radio" name="location" value="Durres">
+                <label for="location">Durres</label><br>
+                <input type="radio" name="location" value="Elbasan">
+                <label for="location">Elbasan</label><br>
+                <input type="radio" name="location" value="Fier">
+                <label for="location">Fier</label>
+            </div>
+            <div>
+                <label for="name">Favorite Language: </label><br>
+                <input type="checkbox" name="language" value="Python">
+                <label for="language"> Python</label><br>
+                <input type="checkbox" name="language" value="Java">
+                <label for="language"> Java</label><br>
+                <input type="checkbox" name="language" value="C#">
+                <label for="language">C#</label><br>            
+            </div>
+            <div>
+                <label for="name">Coments: </label>
+                <input type="text" name="comment" class="form-control">
+            </div>
+                <input type="submit" >
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
