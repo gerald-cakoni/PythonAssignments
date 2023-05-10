@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit the User</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container-fluid p-3 flex-column w-50 d-flex justify-content-center text-primary-emphasis border-primary-subtle rounded-3">
+        <div class="d-flex justify-content-between align-items-center">
+            <h1 class="fw-bold mb-3">Edit</h1>
+
+            <form action="/">
+                <input class="btn btn-dark" type="submit" value="Home">
+            </form>
+        </div>
+
+        <form action="/update/{{user.id}}" method="post">
+            <div class='mb-3'>
+                <label class="form-label">First Name:*</label>
+                <input value="{{user.first_name}}" class="form-control border border-primary" type="text" name="first_name">
+            </div>
+
+            <div class='mb-3'>
+                <label class="form-label">Last Name:*</label>
+                <input value="{{user.last_name}}"  class="form-control border border-primary" type="text" name="last_name">
+            </div>
+
+            <div class='mb-3'>
+                <label class="form-label">Email Address*: </label>
+                <input value="{{user.email}}"  class="form-control border border-primary" type="email" name="email_address">
+            </div>
+            
+
+            <div class='mb-3'>
+                <input class="btn btn-primary" type="submit" value="Update">
+            </div>
+
+            <a href="/show/{{user.id}}">Show {{user.first_name}}</a>
+
+</body>
+</html>

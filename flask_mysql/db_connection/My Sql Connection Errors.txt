@@ -1,0 +1,21 @@
+1 - OperationalError
+pymysql.err.OperationalError: (2003, "Can't connect to MySQL server on 'locahost' ([Errno 11001] getaddrinfo failed)")
+#change the user and password as needed
+connection = pymysql.connect(host = 'locahost',
+
+- I didn't write correctly the localhost.
+
+2 - AttributeError
+AttributeError: 'MySQLConnection' object has no attribute 'connection'
+with self.connection.cursor() as cursor:
+
+- I didn't establish the connection to the database.
+
+3 - IndentationError: expected an indented block after 'finally' statement on line 39
+
+- I didn't close the connection.
+
+4 - NameError
+NameError: name 'pymysql' is not defined
+
+- I didn't import the pymysql.cursors.
