@@ -16,6 +16,18 @@ CREATE SCHEMA IF NOT EXISTS `burgers` DEFAULT CHARACTER SET utf8 ;
 USE `burgers` ;
 
 -- -----------------------------------------------------
+-- Table `burgers`.`restaurants`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `burgers`.`restaurants` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NOT NULL,
+  `created_at` VARCHAR(45) NOT NULL DEFAULT 'NOW()',
+  `updated_at` VARCHAR(45) NOT NULL DEFAULT 'NOW() ON UPDATE NOW()',
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
 -- Table `burgers`.`burgers`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `burgers`.`burgers` (
@@ -26,7 +38,14 @@ CREATE TABLE IF NOT EXISTS `burgers`.`burgers` (
   `calories` FLOAT NOT NULL,
   `created_at` DATETIME NOT NULL DEFAULT NOW(),
   `updated_at` DATETIME NOT NULL DEFAULT NOW() ON UPDATE NOW(),
-  PRIMARY KEY (`id`))
+  `restaurants_id` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_burgers_restaurants_idx` (`restaurants_id` ASC) VISIBLE,
+  CONSTRAINT `fk_burgers_restaurants`
+    FOREIGN KEY (`restaurants_id`)
+    REFERENCES `burgers`.`restaurants` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
