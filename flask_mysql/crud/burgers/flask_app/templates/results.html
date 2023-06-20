@@ -26,12 +26,8 @@
     </div>
     <div class="d-flex justify-content-around flex-wrap p-5">
 
-        {% for restaurant  in all_restaurants %}
-            <div class="card col-3 bg-dark text-light">
-                <div class="card-body">
-                    <h2 class="card-title text-primary">Restaurant name: {{ restaurant['name'] }}</a></h2>
-                </div>
-            </div>
+        {% for restaurant in all_restaurants %}
+            {{ restaurant.name }}
         {% endfor %}
 
     </div>

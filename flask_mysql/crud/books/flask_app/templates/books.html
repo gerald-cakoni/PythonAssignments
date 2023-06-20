@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authors</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+
+</head>
+<body class="d-flex m-auto">
+    <div class="p-5">
+        <h2>New Book</h2>
+        <form class="form-inline" action="create_book" method="post">
+            <div>
+                <div class="form-group mx-sm-3 mb-2">
+                    <label for="title" class="sr-only">Book</label>
+                    <input name="title" type="text" class="form-control" placeholder="Book">
+                </div>
+                <div class="form-group mx-sm-3 mb-2">
+                    <label for="num_of_pages" class="sr-only">Number of Pages</label>
+                    <input name="num_of_pages" type="number" class="form-control" placeholder="Number of Pages">
+                </div>
+                <button type="submit" class="btn btn-primary mb-2">Add Book</button>
+            </div>
+            </form>
+            <a href="/display_books">All Books</a>    
+            <a href="/">Home</a>    
+    </div>
+    <div class="p-5">
+        <h2>All Books</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Number of Pages</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for book in all_books %}
+                <tr>
+                    <td>{{book.title}}</td>
+                    <td>{{book.num_of_pages}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

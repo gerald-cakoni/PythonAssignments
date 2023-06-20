@@ -4,9 +4,6 @@ from flask_app.models.burger import Burger
 from flask_app.models.restaurant import Restaurant
 
 
-@app.route('/restaurant')
-def restaurant():
-    return render_template("add_restaurant.html")
 
 
 @app.route('/restaurant12',methods=['POST'])

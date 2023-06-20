@@ -19,6 +19,15 @@ class Restaurant:
         return connectToMySQL('burgers').query_db( query, data)
 
     @classmethod
+    def get_all(cls):
+        query = "SELECT * FROM restaurants;"
+        burgers_from_db =  connectToMySQL('burgers').query_db(query)
+        restaurants =[]
+        for b in burgers_from_db:
+            restaurants.append(cls(b))
+        return restaurants
+
+    @classmethod
     def get_restaurant_with_burgers( cls , data ):
         query = "SELECT * FROM restaurants LEFT JOIN burgers ON burgers.restaurant_id = restaurants.id WHERE restaurants.id = %(id)s;"
         results = connectToMySQL('burgers').query_db( query , data )

@@ -34,6 +34,8 @@ def read():
     users = User.get_all()
     return render_template("read.html", all_users = users)
 
+
+
 # SHOW A SPECIFIC USER
 @app.route('/show/<int:id>')
 def showUser(id):
@@ -41,7 +43,7 @@ def showUser(id):
         'id': id
     }
     user=User.get_user_by_id(data)
-    return render_template('show.html', user=user)
+    return render_template('show.html', user=user) 
 
 
 @app.route('/delete/<int:id>')

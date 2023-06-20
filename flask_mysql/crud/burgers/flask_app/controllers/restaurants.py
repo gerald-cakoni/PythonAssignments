@@ -9,9 +9,22 @@ from flask_app.models.restaurant import Restaurant
 def index():
     return render_template("index.html")
 
-@app.route('/restaurant')
-def restaurant():
+@app.route('/create_restaurant')
+def create_restaurant():
     return render_template("add_restaurant.html")
+
+@app.route('/restaurant',methods=['POST'])
+def restaurant():
+
+    data = {
+        "name":request.form['name'],
+    }
+    Restaurant.save(data)
+    return redirect("/all_restaurants")
+
+@app.route('/all_restaurants')
+def all_restaurants():
+    return render_template("results.html",all_restaurants=Restaurant.get_all())
 
 
 
@@ -33,6 +46,7 @@ def create():
 @app.route('/burgers')
 def burgers():
     return render_template("results.html",all_burgers=Burger.get_all())
+
 
 
 @app.route('/show/<int:burger_id>')

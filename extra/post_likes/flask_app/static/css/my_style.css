@@ -1,0 +1,17 @@
+.h1{
+    background-color: purple;
+    color: #f21e1e;
+}
+
+.body{
+    background-color: purple;
+}
+
+.myPostImage{
+    width: 30%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 10px;
+    display: flex;
+    margin: auto;
+}
